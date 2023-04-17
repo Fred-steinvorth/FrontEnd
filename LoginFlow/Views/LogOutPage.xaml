@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginFlow.Views.LogOutPage"
+             Title="LogOut">
+    <Grid RowDefinitions="auto" Margin="0,-40,0,0">
+
+        <Image Source="logout.jpg"
+               Aspect="AspectFill"
+               VerticalOptions="Fill"
+               HorizontalOptions="Fill" Margin="0" Visual="Default"/>
+
+        <VerticalStackLayout Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame BorderColor="Gray"
+               CornerRadius="10"
+               HasShadow="True"
+               Margin="0,-20,0,0"
+               ZIndex="0"
+               Padding="8">
+                <Frame.Shadow>
+                    <Shadow Brush="black"
+                Offset="20,20"
+                Radius="10"
+                Opacity="0.9" />
+                </Frame.Shadow>
+                <StackLayout Padding="10">
+
+                    <VerticalStackLayout Padding="10">
+
+                        <VerticalStackLayout Padding="0" Margin="0,5,0,0">
+                            <HorizontalStackLayout>
+                                <Label FontSize="34" TextColor="black" FontAttributes="Bold" Text="Dear User"/>
+                            </HorizontalStackLayout>
+                            <Label
+                                Text="See you next time"
+                                FontSize="24"
+                                FontAttributes="Bold"
+                                />
+                            <Label
+                                Text="We hope you'll come back soon!"
+                                FontSize="16"
+                                />
+                            <BoxView Color="Black"
+                                 Margin="0,10,0,0"
+                                 HeightRequest="2"
+                                 HorizontalOptions="Fill" />
+                            <Button
+                                Margin="0,20,0,0"
+                                Text="Logout"
+                                x:Name="LogoutButton"
+                                Clicked="LogoutButton_Clicked"
+                                />
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

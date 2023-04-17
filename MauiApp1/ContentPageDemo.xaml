@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.ContentPageDemo"
+             Title="ContentPageDemo"
+            SelectedTabColor="Red"
+            UnselectedTabColor="BlueViolet">
+
+    <ContentPage Title="Pagina 1">
+        <StackLayout>
+        <Button Text="Di Hola Mundo!!" Clicked="Button_Clicked_1"/>
+            <RadioButton CheckedChanged="RadioButton_CheckedChanged"
+                     Content="Opcion 1" GroupName="grupo01"/>
+            <RadioButton CheckedChanged="RadioButton_CheckedChanged"
+                     Content="Opcion 2" GroupName="grupo01"/>
+            <RadioButton CheckedChanged="RadioButton_CheckedChanged"
+                     Content="Opcion 3" GroupName="grupo02"/>
+            <RadioButton CheckedChanged="RadioButton_CheckedChanged"
+                     Content="Opcion 4" GroupName="grupo02"/>
+
+            <SearchBar x:Name="searchControl"
+                       SearchButtonPressed="SearchBar_SearchButtonPressed"/>
+
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Pagina 2">
+        <StackLayout>
+            <CheckBox IsChecked="True"/>
+
+            <Slider x:Name="slider"
+                Minimum="0"
+                Maximum="10"
+                MinimumTrackColor="Yellow"
+                MaximumTrackColor="Green"
+                ValueChanged="slider_ValueChanged"/>
+            <Label x:Name="lblSlider"/>
+
+            <Stepper x:Name="stepper"
+                     ValueChanged="Stepper_ValueChanged"
+                     Maximum="10"
+                     Minimum="2"
+                     Increment="2"/>
+            <Label x:Name="lblstepper"/>
+            <Switch IsToggled="True"/>
+
+        </StackLayout>
+
+    </ContentPage>
+    <ContentPage Title="Pagina 3">
+        <StackLayout>
+            <DatePicker/>
+            <TimePicker/>
+
+            <Entry Placeholder="Su nombre"
+                   x:Name="txtName"
+                   PlaceholderColor="DarkGray"
+                   TextChanged="txtName_TextChanged"
+                   Completed="txtName_Completed"
+                   >
+            </Entry>
+
+            <Entry Placeholder="Su password"
+                   PlaceholderColor="DarkGray"
+                   IsPassword="True">
+            </Entry>
+
+            <Entry Placeholder="Telefono"
+                   PlaceholderColor="DarkGray"
+                   Keyboard="Telephone">
+            </Entry>
+
+            <Entry Placeholder="Edad"
+                   PlaceholderColor="DarkGray"
+                   Keyboard="Numeric">
+            </Entry>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Pagina 4">
+        <CollectionView SelectionMode="Multiple">
+            <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Item01</x:String>
+                        <x:String>Item02</x:String>
+                        <x:String>Item03</x:String>
+                        <x:String>Item04</x:String>
+                        <x:String>Item05</x:String>
+                        <x:String>Item06</x:String>
+                        <x:String>Item07</x:String>
+                        <x:String>Item08</x:String>
+                        <x:String>Item09</x:String>
+                        <x:String>Item10</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame Margin="20"
+                            BorderColor="DarkGray"
+                            CornerRadius="5"
+                            HasShadow="True"
+                            HeightRequest="100"
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand">
+                            <Label Text="{Binding .}"/>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage>
+    <ContentPage Title="Pagina 5">
+        <StackLayout>
+            <CarouselView IndicatorView="indicadorView">
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Item01</x:String>
+                        <x:String>Item02</x:String>
+                        <x:String>Item03</x:String>
+                        <x:String>Item04</x:String>
+                        <x:String>Item05</x:String>
+                        <x:String>Item06</x:String>
+                        <x:String>Item07</x:String>
+                        <x:String>Item08</x:String>
+                        <x:String>Item09</x:String>
+                        <x:String>Item10</x:String>
+                    </x:Array>
+                </CarouselView.ItemsSource>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame Margin="20"
+                                   BorderColor="DarkGray"
+                                   CornerRadius="5"
+                                   HasShadow="True"
+                                   HeightRequest="100"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="CenterAndExpand">
+                                <Label Text="{Binding .}"/>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView
+                x:Name="indicadorView"
+                HorizontalOptions="Center"
+                IndicatorColor="LightGray"
+                SelectedIndicatorColor="DarkGray"/>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Pagina 6">
+        <ListView HasUnevenRows="true">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Item01</x:String>
+                    <x:String>Item02</x:String>
+                    <x:String>Item03</x:String>
+                    <x:String>Item04</x:String>
+                    <x:String>Item05</x:String>
+                    <x:String>Item06</x:String>
+                    <x:String>Item07</x:String>
+                    <x:String>Item08</x:String>
+                    <x:String>Item09</x:String>
+                    <x:String>Item10</x:String>
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Frame Margin="20"
+                                   BorderColor="DarkGray"
+                                   CornerRadius="5"
+                                   HasShadow="True"
+                                   HeightRequest="100"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="CenterAndExpand">
+                                <Label Text="{Binding .}"/>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+    <ContentPage Title="Pagina 7">
+        <CollectionView SelectionMode="Multiple">
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Item01</x:String>
+                    <x:String>Item02</x:String>
+                    <x:String>Item03</x:String>
+                    <x:String>Item04</x:String>
+                    <x:String>Item05</x:String>
+                    <x:String>Item06</x:String>
+                    <x:String>Item07</x:String>
+                    <x:String>Item08</x:String>
+                    <x:String>Item09</x:String>
+                    <x:String>Item10</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame Margin="20"
+                                   BorderColor="DarkGray"
+                                   CornerRadius="5"
+                                   HasShadow="True"
+                                   HeightRequest="100"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="CenterAndExpand">
+                            <Label Text="{Binding .}"/>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage>
+</TabbedPage>

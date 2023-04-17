@@ -1,0 +1,25 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.RecipeListPage">
+    
+    <StackLayout>
+        <CollectionView x:Name="recipeList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Image Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="200" />
+                        <Label Text="{Binding Name}" FontSize="Large" />
+                        <Label Text="{Binding Ingredients}" />
+                        <Label Text="{Binding Steps}" />
+                        <Label Text="{Binding Rating, StringFormat='Rating: {0}'}" />
+                        <StackLayout Orientation="Horizontal">
+                            <Button Text="Editar" />
+                            <Button Text="Ver" />
+                            <Button Text="Eliminar" />
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

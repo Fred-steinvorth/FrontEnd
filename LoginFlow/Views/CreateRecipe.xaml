@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginFlow.Views.CreateRecipe"
+             Title="Create Recipe">
+
+        <StackLayout>
+            <Entry x:Name="nameEntry" Placeholder="Name" />
+            <Entry x:Name="ingredientsEntry" Placeholder="Ingredients" />
+            <Entry x:Name="stepsEntry" Placeholder="Steps" />
+            <Button Text="Choose Image" Clicked="OnChooseImageClicked" />
+            <Image x:Name="imagePreview" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Register" Clicked="OnRegisterClicked" />
+                <Button Text="Cancel" Clicked="OnCancelClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>

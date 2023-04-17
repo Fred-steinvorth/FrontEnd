@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginFlow.Views.MaintenancePage"
+             Title="User Maintenance">
+    <Grid RowDefinitions="auto" Margin="0,-40,0,0">
+
+    <Image Source="userbackground.jpg" 
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="CenterAndExpand"
+           />
+
+ 
+
+    </Grid>
+</ContentPage>
