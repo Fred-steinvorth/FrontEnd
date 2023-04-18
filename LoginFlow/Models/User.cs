@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoginFlow.ViewModels
+namespace LoginFlow.Models
 {
-    public class Recipe
+   public class User
     {
         public string Name { get; set; }
-        public string Steps { get; set; }
-        public string Ingredients { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+     
     }
 }

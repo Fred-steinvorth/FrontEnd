@@ -3,14 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoginFlow.Views.MaintenancePage"
              Title="User Maintenance">
-    <Grid RowDefinitions="auto" Margin="0,-40,0,0">
 
-    <Image Source="userbackground.jpg" 
-           HorizontalOptions="CenterAndExpand"
-           VerticalOptions="CenterAndExpand"
-           />
+    <Grid>
 
- 
+        <Image Source="usermaintenance.jpg"
+               Aspect="AspectFill" VerticalOptions="Fill" HorizontalOptions="Fill">
+        </Image>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Grid Margin="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+
+                        <SearchBar x:Name="searchBar" Grid.Column="0" Placeholder="Search" BackgroundColor="WhiteSmoke" WidthRequest="200"/>
+
+                        <Button x:Name="searchButton" Grid.Column="2" Text="Search" BackgroundColor ="#EF6C00"  TextColor="White" FontAttributes="Bold" BorderColor="White"/>
+
+                    </Grid>
+                </StackLayout>
+            </Grid>
+            <Button x:Name="CreateRecipe" Grid.Column="4" Text="Create a new recipe" BackgroundColor ="#EF6C00" TextColor="White" FontAttributes="Bold" BorderColor="White" Margin="20" HorizontalOptions="End"/>
+            <ListView x:Name="ListView" ItemsSource="{Binding Users}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+                            <Frame BackgroundColor="White" Margin="0,0,0,20" Padding="10" CornerRadius="10" BorderColor="White" HasShadow="True" Opacity="0.5">
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Image Source="Image" HeightRequest="50" WidthRequest="50" />
+                                    <StackLayout >
+                                        <Label Text="Name" FontAttributes="Bold" TextColor="Black" />
+                                        <Label Text="{Binding Name}" />
+                                        <Label Text="Email" FontAttributes="Bold" TextColor="Black" />
+                                        <Label Text="{Binding Email}"/>
+                                        <Label Text="Password" FontAttributes="Bold" TextColor="Black" />
+                                        <Label Text="{Binding SPassword}" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+
+
+                                        <Button Text="See" FontAttributes="Bold" BackgroundColor="#FFB74D" BorderColor="Black"  BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9"/>
+                                        <Button Text="Edit" FontAttributes="Bold" BackgroundColor="#FB8C00" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
+                                        <Button Text="Delete" FontAttributes="Bold" BackgroundColor="#E65100" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
     </Grid>
 </ContentPage>

@@ -49,8 +49,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\boligrafo.png" />
 	  <None Remove="Resources\Images\comida.jpg" />
-	  <None Remove="Resources\Images\cuchara.png" />
 	  <None Remove="Resources\Images\fondo.jpg" />
 	  <None Remove="Resources\Images\fondocomida.jpg" />
 	  <None Remove="Resources\Images\gear_fill.svg" />
@@ -74,16 +74,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
+	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\CreateRecipe.xaml.cs">
-	    <DependentUpon>CreateRecipe.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\CreateUser.xaml.cs">
-	    <DependentUpon>CreateUser.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Views\RecipeMaintenancePage.xaml.cs">
 	    <DependentUpon>RecipeMaintenancePage.xaml</DependentUpon>
 	  </Compile>
@@ -105,12 +99,6 @@
 	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CreateRecipe.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\CreateUser.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\RecipeMaintenancePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -121,6 +109,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\LogOutPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\registroUs.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
