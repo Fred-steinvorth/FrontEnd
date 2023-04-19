@@ -39,12 +39,48 @@
 
                                     <Image Source="Image" HeightRequest="50" WidthRequest="50" />
                                     <StackLayout >
-                                        <Label Text="Name" FontAttributes="Bold" TextColor="Black" />
-                                        <Label Text="{Binding Name}" />
-                                        <Label Text="Ingredients" FontAttributes="Bold" TextColor="Black" />
-                                        <Label Text="{Binding Ingredients}"/>
-                                        <Label Text="Steps" FontAttributes="Bold" TextColor="Black" />
-                                        <Label Text="{Binding Steps}" />
+                                        <Label Text="Receta" FontAttributes="Bold" TextColor="Black" />
+                                        <Label Text="{Binding nombreReceta}" />
+
+
+                                        <Label Text="Ingredientes" FontAttributes="Bold" TextColor="Black" />
+                                        
+                                        <ListView x:Name="ListView1" ItemsSource="{Binding ingredientes}">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <Frame BackgroundColor="White" Margin="10" Padding="10" CornerRadius="10" BorderColor="White" HasShadow="True" Opacity="1.5">
+                                                            <StackLayout Orientation="Horizontal">
+                                                                <Image Source="Image" HeightRequest="50" WidthRequest="50" />
+                                                                <StackLayout >
+                                                                    <Label Text="{Binding ingrediente}" />
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                        
+                                        <Label Text="Pasos" FontAttributes="Bold" TextColor="Black" />
+
+                                        <ListView x:Name="ListView2" ItemsSource="{Binding pasos}">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <Frame BackgroundColor="White" Margin="10" Padding="10" CornerRadius="10" BorderColor="White" HasShadow="True" Opacity="1.5">
+                                                            <StackLayout Orientation="Horizontal">
+                                                                <Image Source="Image" HeightRequest="50" WidthRequest="50" />
+                                                                <StackLayout >
+                                                                    <Label Text="{Binding paso}" />
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
 

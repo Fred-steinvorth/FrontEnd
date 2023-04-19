@@ -1,45 +1,36 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Text.Json;
 using LoginFlow.Models;
+using LoginFlow.Models.Request;
 using Microsoft.Maui.Controls;
+using Newtonsoft.Json;
 
-    namespace LoginFlow.Views
+namespace LoginFlow.Views
+{
+    public partial class MaintenancePage : ContentPage
     {
-        public partial class MaintenancePage : ContentPage
+
+        HttpClient client;
+       
+        public MaintenancePage()
         {
-            public List<User> Users { get; set; }
+            InitializeComponent();
+            client = new HttpClient();
+            LoadUsersAsync();
+        }
 
-            public MaintenancePage()
-            {
-                InitializeComponent();
-
-                // Creamos la lista de usuarios
-                Users = new List<User>();
-
-                // Creamos un nuevo usuario y le asignamos valores a sus propiedades
-                var user1 = new User
-                {
-                    Name = "Kimberley Rojas Alfaro",
-                    Email = "A@A.COM",
-                    Password = "12345"
-                };
-
-                // Agregamos el usuario a la lista
-                Users.Add(user1);
-
-                var user2 = new User
-                {
-                    Name = "Fred Steinvorth",
-                    Email = "b@A.COM",
-                    Password = "12345"
-                };
-
-                // Agregamos el usuario a la lista
-                Users.Add(user2);
-
-                // Asignamos la lista de usuarios a la ListView mediante el atributo ItemsSource en XAML
-                ListView.ItemsSource = Users;
-            }
+        public async void LoadUsersAsync()
+        {
+            String url = "https://localhost:44353/api/user";
+            ReqObtenerTodosLosUsuarios req = new ReqObtenerTodosLosUsuarios();
+            ResObtenerTodosLosUsuarios res = new ResObtenerTodosLosUsuarios();
+            req.session = "12345";
+            var responseApi = await client.GetStringAsync(url);
+            res = JsonConvert.DeserializeObject<ResObtenerTodosLosUsuarios>(responseApi);
+            ListView.ItemsSource = res.listaDeUsuarios;
         }
     }
+}
 
