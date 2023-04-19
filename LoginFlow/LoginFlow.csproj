@@ -59,13 +59,13 @@
 	  <None Remove="Resources\Images\house_door_fill.svg" />
 	  <None Remove="Resources\Images\journal_check.svg" />
 	  <None Remove="Resources\Images\logout.jpg" />
+	  <None Remove="Resources\Images\maintenancePage.jpg" />
 	  <None Remove="Resources\Images\plus_square_fill.svg" />
 	  <None Remove="Resources\Images\recetas.jpg" />
 	  <None Remove="Resources\Images\recipemaintenance.jpg" />
 	  <None Remove="Resources\Images\search.svg" />
 	  <None Remove="Resources\Images\trash_fill.svg" />
 	  <None Remove="Resources\Images\userbackground.jpg" />
-	  <None Remove="Resources\Images\UserMaintenance.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
