@@ -28,7 +28,7 @@
                 </StackLayout>
             </Grid>
 
-            <CarouselView x:Name="Carousel"  HorizontalOptions="FillAndExpand" IsScrollAnimated="true" Loop="True" ItemsUpdatingScrollMode="KeepLastItemInView" Visual="Default">
+            <CarouselView x:Name="Carousel" HorizontalOptions="StartAndExpand" IsScrollAnimated="true" Loop="True">
                 <CarouselView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Item01</x:String>
@@ -46,7 +46,7 @@
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
-                            <Frame Margin="30" BorderColor="DarkGray" CornerRadius="5" HasShadow="True" HeightRequest="230" WidthRequest="230" HorizontalOptions="Start" VerticalOptions="Start">
+                            <Frame Margin="30" BorderColor="DarkGray" CornerRadius="5" HasShadow="True" HeightRequest="230" WidthRequest="230" HorizontalOptions="FillAndExpand" >
                                 <Label Text="{Binding .}"/>
                             </Frame>
                         </StackLayout>

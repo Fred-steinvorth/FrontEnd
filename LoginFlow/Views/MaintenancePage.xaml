@@ -6,7 +6,7 @@
 
     <Grid>
 
-        <Image Source="usermaintenance.jpg"
+        <Image Source="maintenancepage.jpg"
                Aspect="AspectFill" VerticalOptions="Fill" HorizontalOptions="Fill">
         </Image>
         <StackLayout>
@@ -35,7 +35,7 @@
                     <DataTemplate>
 
                         <ViewCell>
-                            <Frame BackgroundColor="White" Margin="0,0,0,20" Padding="10" CornerRadius="10" BorderColor="White" HasShadow="True" Opacity="0.5">
+                            <Frame BackgroundColor="White" Margin="0,0,0,20" Padding="10" CornerRadius="10" BorderColor="White" HasShadow="True" Opacity="0.9">
                                 <StackLayout Orientation="Horizontal">
 
                                     <Image Source="Image" HeightRequest="50" WidthRequest="50" />
