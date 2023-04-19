@@ -40,12 +40,11 @@
 
                                     <Image Source="Image" HeightRequest="50" WidthRequest="50" />
                                     <StackLayout >
-                                        <Label Text="Name" FontAttributes="Bold" TextColor="Black" />
-                                        <Label Text="{Binding Name}" />
+                                        <Label Text="Username" FontAttributes="Bold" TextColor="Black" />
+                                        <Label Text="{Binding username}" />
                                         <Label Text="Email" FontAttributes="Bold" TextColor="Black" />
-                                        <Label Text="{Binding Email}"/>
-                                        <Label Text="Password" FontAttributes="Bold" TextColor="Black" />
-                                        <Label Text="{Binding SPassword}" />
+                                        <Label Text="{Binding email}"/>
+                                    
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
 
