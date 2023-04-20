@@ -10,8 +10,10 @@ public partial class LoginPage : ContentPage{
 
     HttpClient client;
     JsonSerializerOptions _jsonSerializerOptions;
+    public static Usuario usuarioGlobal;
     public LoginPage()
     {
+        usuarioGlobal = new Usuario();
         InitializeComponent();
         client = new HttpClient();
         _jsonSerializerOptions = new JsonSerializerOptions();
@@ -49,6 +51,21 @@ public partial class LoginPage : ContentPage{
 
         if (res.result)
         {
+            String urlUsuario = "https://localhost:44353/api/user?email="+username+"&password="+password;
+            ReqObtenerUsuario reqUser = new ReqObtenerUsuario();
+            ResObtenerUsuario resUser = new ResObtenerUsuario();
+            reqUser.session = "12345";
+            reqUser.email = username;
+            reqUser.password = encrypt(password);
+            var responseApiUser = await client.GetStringAsync(urlUsuario);
+            resUser = JsonConvert.DeserializeObject<ResObtenerUsuario>(responseApiUser);
+
+            usuarioGlobal.id = resUser.usuario.id;
+            usuarioGlobal.username = resUser.usuario.username;
+            usuarioGlobal.status = resUser.usuario.status;
+            usuarioGlobal.isAdmin = resUser.usuario.isAdmin;
+            usuarioGlobal.email = username;
+
             await SecureStorage.SetAsync("hasAuth", "true");
             await Shell.Current.GoToAsync("///home");
         }
@@ -56,5 +73,16 @@ public partial class LoginPage : ContentPage{
         {
             await DisplayAlert("Login failed", "Uusername or password if invalid", "Try again");
         }
+
+        
+    }
+    private string encrypt(string password)
+    {
+        if (password == null)
+        {
+            return null;
+        }
+        byte[] encryted = System.Text.Encoding.Unicode.GetBytes(password);
+        return Convert.ToBase64String(encryted);
     }
 }
