@@ -29,7 +29,7 @@
 
                         <VerticalStackLayout Padding="0" Margin="0,5,0,0">
                             <HorizontalStackLayout>
-                                <Label FontSize="34" TextColor="black" FontAttributes="Bold" Text="Dear User"/>
+                                <Label x:Name="TextDear" FontSize="34" TextColor="black" FontAttributes="Bold" />
                             </HorizontalStackLayout>
                             <Label
                                 Text="See you next time"
