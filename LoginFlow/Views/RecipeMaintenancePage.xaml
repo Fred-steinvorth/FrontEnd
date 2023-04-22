@@ -29,7 +29,7 @@
                 </StackLayout>
             </Grid>
             <Button Text="Create a new recipe" HorizontalOptions="EndAndExpand" BackgroundColor ="#EF6C00" Margin="20" TextColor="White" FontAttributes="Bold" BorderColor="White" />
-            <ListView x:Name="ListView" ItemsSource="{Binding Recipes}">
+            <ListView x:Name="ListView" ItemsSource="{Binding AdminRecipes}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
@@ -48,9 +48,9 @@
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                                  
-                                        <Button Text="See" FontAttributes="Bold" BackgroundColor="#FFB74D" BorderColor="Black"  BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9"/>
-                                        <Button Text="Edit" FontAttributes="Bold" BackgroundColor="#FB8C00" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
-                                        <Button Text="Delete" FontAttributes="Bold" BackgroundColor="#E65100" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
+                                        <Button Text="See" Clicked="SeeButton_Clicked" FontAttributes="Bold" BackgroundColor="#FFB74D" BorderColor="Black"  BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9"/>
+                                        <Button Text="Edit" Clicked="EditButton_Clicked"  FontAttributes="Bold" BackgroundColor="#FB8C00" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
+                                        <Button Text="Delete" Clicked="DeleteButton_Clicked" FontAttributes="Bold" BackgroundColor="#E65100" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
 
                                     </StackLayout>
                                 </StackLayout>

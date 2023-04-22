@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LoginFlow.Views.MaintenancePage"
-             Title="User Maintenance">
+             x:Class="LoginFlow.Views.MyRecipesPage">
 
     <Grid>
 
-        <Image Source="maintenancepage.jpg"
+        <Image Source="recipemaintenance.jpg"
                Aspect="AspectFill" VerticalOptions="Fill" HorizontalOptions="Fill">
         </Image>
         <StackLayout>
@@ -29,30 +28,30 @@
                     </Grid>
                 </StackLayout>
             </Grid>
-            <Button x:Name="CreateUser"  Grid.Column="4" Text="Create a new User" BackgroundColor ="#EF6C00" TextColor="White" FontAttributes="Bold" BorderColor="White" Margin="20" HorizontalOptions="End"/>
-            <ListView x:Name="ListView" ItemsSource="{Binding Users}">
+            <Button Text="Create a new recipe" HorizontalOptions="EndAndExpand" BackgroundColor ="#EF6C00" Margin="20" TextColor="White" FontAttributes="Bold" BorderColor="White" />
+            <ListView x:Name="ListView" ItemsSource="{Binding Recipes}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
                         <ViewCell>
-                            <Frame BackgroundColor="White" Margin="0,0,0,20" Padding="10" CornerRadius="10" BorderColor="White" HasShadow="True" Opacity="0.9">
+                            <Frame BackgroundColor="White" Margin="10" Padding="10" CornerRadius="10" BorderColor="White" HasShadow="True" Opacity="0.9">
                                 <StackLayout Orientation="Horizontal">
 
                                     <Image Source="Image" HeightRequest="50" WidthRequest="50" />
                                     <StackLayout >
                                         <Label Text="Name" FontAttributes="Bold" TextColor="Black" />
                                         <Label Text="{Binding Name}" />
-                                        <Label Text="Email" FontAttributes="Bold" TextColor="Black" />
-                                        <Label Text="{Binding Email}"/>
-                                        <Label Text="Password" FontAttributes="Bold" TextColor="Black" />
-                                        <Label Text="{Binding SPassword}" />
+                                        <Label Text="Ingredients" FontAttributes="Bold" TextColor="Black" />
+                                        <Label Text="{Binding Ingredients}"/>
+                                        <Label Text="Steps" FontAttributes="Bold" TextColor="Black" />
+                                        <Label Text="{Binding Steps}" />
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-
-
-                                        <Button Text="See" Clicked="ViewButton_Clicked" FontAttributes="Bold" BackgroundColor="#FFB74D" BorderColor="Black"  BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9"/>
+                                 
+                                        <Button Text="See" Clicked="SeeButton_Clicked" FontAttributes="Bold" BackgroundColor="#FFB74D" BorderColor="Black"  BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9"/>
                                         <Button Text="Edit" Clicked="EditButton_Clicked" FontAttributes="Bold" BackgroundColor="#FB8C00" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
                                         <Button Text="Delete" Clicked="DeleteButton_Clicked" FontAttributes="Bold" BackgroundColor="#E65100" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
+
                                     </StackLayout>
                                 </StackLayout>
 
@@ -61,7 +60,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
+            
         </StackLayout>
     </Grid>
 </ContentPage>

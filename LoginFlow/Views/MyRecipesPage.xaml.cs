@@ -5,53 +5,48 @@ using Microsoft.Maui.Controls;
 
 namespace LoginFlow.Views
 {
-    public partial class RecipeMaintenancePage : ContentPage
+    public partial class MyRecipesPage : ContentPage
     {
-        public List<AdminRecipes> Recipes { get; set; }
+        public List<AdminRecipes> MyRecipes { get; set; }
 
-        public RecipeMaintenancePage()
+        public MyRecipesPage()
         {
             InitializeComponent();
 
-            // Creamos la lista de recetas
-            Recipes = new List<AdminRecipes>();
+            MyRecipes = new List<AdminRecipes>();
 
-            // Creamos una nueva receta y le asignamos valores a sus propiedades
             var recipe1 = new AdminRecipes
             {
-                Name = "Ensalada de Palmito",
-                Ingredients = "Palmito, cebolla, aceite de oliva, vinagre balsámico, sal, pimienta",
-                Steps = "1. Cortar los Palmitos y la cebolla en rodajas\n2. Mezclar el aceite de oliva, el vinagre balsámico, la sal y la pimienta en un bol\n3. Colocar las rodajas de tomate y cebolla en un plato y rociar la mezcla de aceite y vinagre por encima"
+                Name = "Ensalada de tomate",
+                Ingredients = "Tomates, cebolla, aceite de oliva, vinagre balsámico, sal, pimienta",
+                Steps = "1. Cortar los tomates y la cebolla en rodajas\n2. Mezclar el aceite de oliva, el vinagre balsámico, la sal y la pimienta en un bol\n3. Colocar las rodajas de tomate y cebolla en un plato y rociar la mezcla de aceite y vinagre por encima"
             };
 
-            // Agregamos la receta a la lista
-            Recipes.Add(recipe1);
+            MyRecipes.Add(recipe1);
 
-            // Agregamos más recetas de la misma forma
             var recipe2 = new AdminRecipes
             {
-                Name = "Arroz con Calamares",
-                Ingredients = "Arroz, Calamares, cebolla, ajo, pimiento, guisantes, zanahoria, aceite, sal, pimienta, caldo de pollo",
-                Steps = "1. Dorar el Calamares en una olla con aceite\n2. Agregar la cebolla, ajo, pimiento, guisantes y zanahoria picados y saltear\n3. Agregar el arroz y saltear\n4. Agregar el caldo de pollo y dejar cocinar hasta que el arroz esté listo"
+                Name = "Arroz con pollo",
+                Ingredients = "Arroz, pollo, cebolla, ajo, pimiento, guisantes, zanahoria, aceite, sal, pimienta, caldo de pollo",
+                Steps = "1. Dorar el pollo en una olla con aceite\n2. Agregar la cebolla, ajo, pimiento, guisantes y zanahoria picados y saltear\n3. Agregar el arroz y saltear\n4. Agregar el caldo de pollo y dejar cocinar hasta que el arroz esté listo"
             };
 
-            Recipes.Add(recipe2);
+            MyRecipes.Add(recipe2);
 
-            // Asignamos la lista de recetas a la ListView mediante el atributo ItemsSource en XAML
-            ListView.ItemsSource = Recipes;
+            ListView.ItemsSource = MyRecipes;
 
         }
         private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
             var selectedRecipe = (sender as Button).BindingContext as AdminRecipes;
 
-            if (Recipes.Contains(selectedRecipe))
+            if (MyRecipes.Contains(selectedRecipe))
             {
                 bool answer = await DisplayAlert("Confirm", "Are you sure you want to delete this user?", "Yes", "No");
 
                 if (answer)
                 {
-                    Recipes.Remove(selectedRecipe);
+                    MyRecipes.Remove(selectedRecipe);
                 }
             }
         }
@@ -96,16 +91,16 @@ namespace LoginFlow.Views
             }
 
             // Busca el índice de la receta seleccionada en la lista
-            var index = Recipes.IndexOf(selectedRecipe);
+            var index = MyRecipes.IndexOf(selectedRecipe);
 
             if (index >= 0)
             {
                 // Reemplaza la receta anterior con la actualizada
-                Recipes[index] = updatedRecipe;
+                MyRecipes[index] = updatedRecipe;
 
                 // Actualiza la vista de la lista de recetas
                 ListView.ItemsSource = null;
-                ListView.ItemsSource = Recipes;
+                ListView.ItemsSource = MyRecipes;
             }
         }
         private void SeeButton_Clicked(object sender, EventArgs e)
@@ -178,4 +173,3 @@ namespace LoginFlow.Views
         }
     }
 }
-
