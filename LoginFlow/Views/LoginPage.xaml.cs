@@ -19,15 +19,15 @@ public partial class LoginPage : ContentPage{
         _jsonSerializerOptions = new JsonSerializerOptions();
     }
 
-    protected override bool OnBackButtonPressed()
-    {
-        Application.Current.Quit();
-        return true;
-    }
+        protected override bool OnBackButtonPressed()
+        {
+            Application.Current.Quit();
+            return true;
+        }
 
     private async void LoginButton_Clicked(object sender, EventArgs e)
     {
-        IsCredentialCorrect(Username.Text, Password.Text);
+        IsCredentialCorrect(Email.Text, Password.Text);
     }
 
     async void IsCredentialCorrect(string username, string password)

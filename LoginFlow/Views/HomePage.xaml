@@ -6,7 +6,7 @@
 
     <Grid RowDefinitions="auto" Margin="0,-40,0,0">
         <Image Source="recetas.jpg" Aspect="AspectFill" VerticalOptions="Fill" HorizontalOptions="Fill" />
-        
+
         <StackLayout Margin="130" HorizontalOptions="StartAndExpand">
             <Grid>
                 <Grid.RowDefinitions>

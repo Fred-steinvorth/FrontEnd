@@ -1,18 +1,34 @@
+using System;
+using System.Collections.Generic;
 using LoginFlow.Models;
 using LoginFlow.Models.Request;
+using Microsoft.Maui.Controls;
 using Newtonsoft.Json;
 
 namespace LoginFlow.Views
 {
-    public partial class RecipeMaintenancePage : ContentPage
+    public partial class MyRecipesPage : ContentPage
     {
+        public List<Receta> recetas { get; set; }
         HttpClient client;
-        List<Receta> recetas;
-        public RecipeMaintenancePage()
+
+        public MyRecipesPage()
         {
-            client = new HttpClient();
+            client= new HttpClient();   
             InitializeComponent();
             LoadRecipeAsync();
+        }
+
+        public async void LoadRecipeAsync()
+        {
+            String url = "https://localhost:44353/api/receta/"+ LoginPage.usuarioGlobal.id;
+            ReqObtenerTodasLasRecetas req = new ReqObtenerTodasLasRecetas();
+            ResObtenerTodasLasRecetas res = new ResObtenerTodasLasRecetas();
+            req.session = "12345";
+            var responseApi = await client.GetStringAsync(url);
+            res = JsonConvert.DeserializeObject<ResObtenerTodasLasRecetas>(responseApi);
+            ListView.ItemsSource = res.listaDeRecetas;
+            recetas = res.listaDeRecetas;
         }
 
         private async void DeleteButton_Clicked(object sender, EventArgs e)
@@ -49,19 +65,19 @@ namespace LoginFlow.Views
                 updatedRecipe.nombreReceta = name;
             }
 
-            List<Ingrediente> nuevaListIngrediente = new List<Ingrediente>();
+            List<Ingrediente> nuevaListaIngrediente = new List<Ingrediente>();
             foreach (Ingrediente ingrediente in selectedRecipe.ingredientes)
             {
                 var ingredients = await DisplayPromptAsync("Editar receta", "Ingredientes", placeholder: ingrediente.ingrediente);
                 if (!string.IsNullOrWhiteSpace(ingredients))
                 {
                     ingrediente.ingrediente = ingredients;
-                    nuevaListIngrediente.Add(ingrediente);
+                    nuevaListaIngrediente.Add(ingrediente);
                 }
             }
-            updatedRecipe.ingredientes = nuevaListIngrediente;
+            updatedRecipe.ingredientes = nuevaListaIngrediente;
 
-            List<Paso> nuevaListaPaso = new List<Paso>();       
+            List<Paso> nuevaListaPaso =  new List<Paso>();  
             foreach (Paso paso in selectedRecipe.pasos)
             {
                 var steps = await DisplayPromptAsync("Editar receta", "Pasos", placeholder: paso.paso);
@@ -126,7 +142,7 @@ namespace LoginFlow.Views
                     Spacing = 10,
                     Children =
                 {
-                    new Label { Text = "NombreReceta:", FontAttributes = FontAttributes.Bold },
+                    new Label { Text = "Nombre Receta:", FontAttributes = FontAttributes.Bold },
                     new Label { Text = selectedRecipe.nombreReceta },
                     new Label { Text = "Ingredientes:", FontAttributes = FontAttributes.Bold },
                     new Label { Text = ingredientesConvatenados },
@@ -173,17 +189,6 @@ namespace LoginFlow.Views
                 BackgroundImageSource = "seebutton.jpg",
                 Content = mainStackLayout
             });
-        }
-        public async void LoadRecipeAsync()
-        {
-            String url = "https://localhost:44353/api/receta";
-            ReqObtenerTodasLasRecetas req = new ReqObtenerTodasLasRecetas();
-            ResObtenerTodasLasRecetas res = new ResObtenerTodasLasRecetas();
-            req.session = "12345";
-            var responseApi = await client.GetStringAsync(url);
-            res = JsonConvert.DeserializeObject<ResObtenerTodasLasRecetas>(responseApi);
-            ListView.ItemsSource = res.listaDeRecetas;
-            recetas = res.listaDeRecetas;
         }
     }
 }
