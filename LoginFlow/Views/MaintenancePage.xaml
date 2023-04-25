@@ -6,7 +6,7 @@
 
     <Grid>
 
-        <Image Source="usermaintenance.jpg"
+        <Image Source="maintenancepage.jpg"
                Aspect="AspectFill" VerticalOptions="Fill" HorizontalOptions="Fill">
         </Image>
         <StackLayout>
@@ -29,13 +29,13 @@
                     </Grid>
                 </StackLayout>
             </Grid>
-            <Button x:Name="CreateRecipe" Grid.Column="4" Text="Create a new recipe" BackgroundColor ="#EF6C00" TextColor="White" FontAttributes="Bold" BorderColor="White" Margin="20" HorizontalOptions="End"/>
+            <Button x:Name="CreateUser"  Grid.Column="4" Text="Create a new User" BackgroundColor ="#EF6C00" TextColor="White" FontAttributes="Bold" BorderColor="White" Margin="20" HorizontalOptions="End"/>
             <ListView x:Name="ListView" ItemsSource="{Binding Users}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
                         <ViewCell>
-                            <Frame BackgroundColor="White" Margin="0,0,0,20" Padding="10" CornerRadius="10" BorderColor="White" HasShadow="True" Opacity="0.5">
+                            <Frame BackgroundColor="White" Margin="0,0,0,20" Padding="10" CornerRadius="10" BorderColor="White" HasShadow="True" Opacity="0.9">
                                 <StackLayout Orientation="Horizontal">
 
                                     <Image Source="Image" HeightRequest="50" WidthRequest="50" />
@@ -49,9 +49,9 @@
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
 
 
-                                        <Button Text="See" FontAttributes="Bold" BackgroundColor="#FFB74D" BorderColor="Black"  BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9"/>
-                                        <Button Text="Edit" FontAttributes="Bold" BackgroundColor="#FB8C00" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
-                                        <Button Text="Delete" FontAttributes="Bold" BackgroundColor="#E65100" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
+                                        <Button Text="See" Clicked="ViewButton_Clicked" FontAttributes="Bold" BackgroundColor="#FFB74D" BorderColor="Black"  BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9"/>
+                                        <Button Text="Edit" Clicked="EditButton_Clicked" FontAttributes="Bold" BackgroundColor="#FB8C00" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
+                                        <Button Text="Delete" Clicked="DeleteButton_Clicked" FontAttributes="Bold" BackgroundColor="#E65100" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
                                     </StackLayout>
                                 </StackLayout>
 

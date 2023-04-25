@@ -49,7 +49,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\boligrafo.png" />
 	  <None Remove="Resources\Images\comida.jpg" />
 	  <None Remove="Resources\Images\fondo.jpg" />
 	  <None Remove="Resources\Images\fondocomida.jpg" />
@@ -59,17 +58,19 @@
 	  <None Remove="Resources\Images\house_door_fill.svg" />
 	  <None Remove="Resources\Images\journal_check.svg" />
 	  <None Remove="Resources\Images\logout.jpg" />
+	  <None Remove="Resources\Images\maintenancePage.jpg" />
 	  <None Remove="Resources\Images\plus_square_fill.svg" />
 	  <None Remove="Resources\Images\recetas.jpg" />
 	  <None Remove="Resources\Images\recipemaintenance.jpg" />
 	  <None Remove="Resources\Images\search.svg" />
+	  <None Remove="Resources\Images\seebutton.jpg" />
 	  <None Remove="Resources\Images\trash_fill.svg" />
 	  <None Remove="Resources\Images\userbackground.jpg" />
-	  <None Remove="Resources\Images\UserMaintenance.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
+		<PackageReference Include="Google.Apis.Admin.Directory.directory_v1" Version="1.60.0.3018" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
@@ -79,6 +80,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\MyRecipesPage.xaml.cs">
+	    <DependentUpon>MyRecipesPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\RecipeMaintenancePage.xaml.cs">
 	    <DependentUpon>RecipeMaintenancePage.xaml</DependentUpon>
 	  </Compile>
@@ -98,6 +102,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MyRecipesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RecipeMaintenancePage.xaml">

@@ -13,4 +13,6 @@ namespace LoginFlow.Models
         public string status { get; set; }
         public int idReceta { get; set; }
     }
+
+
 }

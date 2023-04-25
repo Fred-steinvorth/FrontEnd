@@ -13,5 +13,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute("LogOut", typeof(LogOutPage));
         Routing.RegisterRoute("UserMaintenance", typeof(MaintenancePage));
         Routing.RegisterRoute("RecipeMaintenance", typeof(RecipeMaintenancePage));
+        Routing.RegisterRoute("MyRecipes", typeof(MyRecipesPage));
     }
 }

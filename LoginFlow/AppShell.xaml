@@ -46,6 +46,14 @@
             Route="RecipeMaintenance" />
 
         </Tab>
+        <Tab Title="My Recipes">
+            <ShellContent
+             
+            Title="My Recipes"
+            ContentTemplate="{DataTemplate views:MyRecipesPage}"
+            Route="MyRecipes" />
+
+        </Tab>
         <Tab Title="LogOut" Icon="gear_fill.svg">
             <ShellContent
                

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LoginFlow.Views.RecipeMaintenancePage">
+             x:Class="LoginFlow.Views.MyRecipesPage">
 
     <Grid>
 
@@ -29,7 +29,7 @@
                 </StackLayout>
             </Grid>
             <Button Text="Create a new recipe" HorizontalOptions="EndAndExpand" BackgroundColor ="#EF6C00" Margin="20" TextColor="White" FontAttributes="Bold" BorderColor="White" />
-            <ListView x:Name="ListView" ItemsSource="{Binding AdminRecipes}">
+            <ListView x:Name="ListView" ItemsSource="{Binding Recipes}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
@@ -44,7 +44,7 @@
 
 
                                         <Label Text="Ingredientes" FontAttributes="Bold" TextColor="Black" />
-                                        
+
                                         <ListView x:Name="ListView1" ItemsSource="{Binding ingredientes}">
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
@@ -61,7 +61,7 @@
                                                 </DataTemplate>
                                             </ListView.ItemTemplate>
                                         </ListView>
-                                        
+
                                         <Label Text="Pasos" FontAttributes="Bold" TextColor="Black" />
 
                                         <ListView x:Name="ListView2" ItemsSource="{Binding pasos}">
@@ -80,12 +80,11 @@
                                                 </DataTemplate>
                                             </ListView.ItemTemplate>
                                         </ListView>
-
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                                  
                                         <Button Text="See" Clicked="SeeButton_Clicked" FontAttributes="Bold" BackgroundColor="#FFB74D" BorderColor="Black"  BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9"/>
-                                        <Button Text="Edit" Clicked="EditButton_Clicked"  FontAttributes="Bold" BackgroundColor="#FB8C00" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
+                                        <Button Text="Edit" Clicked="EditButton_Clicked" FontAttributes="Bold" BackgroundColor="#FB8C00" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
                                         <Button Text="Delete" Clicked="DeleteButton_Clicked" FontAttributes="Bold" BackgroundColor="#E65100" BorderColor="Black" BorderWidth="1" CornerRadius="10" WidthRequest="80" HeightRequest="60" Margin="3" Opacity="0.9" />
 
                                     </StackLayout>
